@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		315655A12199E8E8008C6731 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315655A02199E8E8008C6731 /* Intents.framework */; };
 		316BC9FD216BC60B008AB811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BC9FC216BC60B008AB811 /* AppDelegate.swift */; };
 		316BC9FF216BC60B008AB811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BC9FE216BC60B008AB811 /* ViewController.swift */; };
 		316BCA02216BC60B008AB811 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316BCA00216BC60B008AB811 /* Main.storyboard */; };
@@ -14,6 +15,14 @@
 		316BCA07216BC60C008AB811 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 316BCA05216BC60C008AB811 /* LaunchScreen.storyboard */; };
 		316BCA12216BC60C008AB811 /* se_visionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA11216BC60C008AB811 /* se_visionTests.swift */; };
 		316BCA1D216BC60C008AB811 /* se_visionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA1C216BC60C008AB811 /* se_visionUITests.swift */; };
+		316BCA2E216BC705008AB811 /* BubbleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA2A216BC705008AB811 /* BubbleLayer.swift */; };
+		316BCA2F216BC705008AB811 /* VisionMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA2B216BC705008AB811 /* VisionMLViewController.swift */; };
+		316BCA30216BC705008AB811 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA2C216BC705008AB811 /* ARViewController.swift */; };
+		316BCA31216BC705008AB811 /* BubbleLabelLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA2D216BC705008AB811 /* BubbleLabelLayer.swift */; };
+		316BCA33216BC718008AB811 /* Rupees.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA32216BC718008AB811 /* Rupees.mlmodel */; };
+		31D6189F218DC3AA003F0CF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */; };
+		31FA1B7C21D260B00055F444 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1B7B21D260B00055F444 /* UIUtilities.swift */; };
+		3304889821CD46653D867333 /* Pods_Daykho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBCE0C150678A0235653989D /* Pods_Daykho.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		316BC9F9216BC60B008AB811 /* se_vision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = se_vision.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3156559F2199E814008C6731 /* Daykho.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Daykho.entitlements; sourceTree = "<group>"; };
+		315655A02199E8E8008C6731 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		316BC9F9216BC60B008AB811 /* Daykho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daykho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		316BC9FC216BC60B008AB811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		316BC9FE216BC60B008AB811 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		316BCA01216BC60B008AB811 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,6 +58,16 @@
 		316BCA18216BC60C008AB811 /* se_visionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = se_visionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		316BCA1C216BC60C008AB811 /* se_visionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = se_visionUITests.swift; sourceTree = "<group>"; };
 		316BCA1E216BC60C008AB811 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		316BCA2A216BC705008AB811 /* BubbleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleLayer.swift; sourceTree = "<group>"; };
+		316BCA2B216BC705008AB811 /* VisionMLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisionMLViewController.swift; sourceTree = "<group>"; };
+		316BCA2C216BC705008AB811 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		316BCA2D216BC705008AB811 /* BubbleLabelLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleLabelLayer.swift; sourceTree = "<group>"; };
+		316BCA32216BC718008AB811 /* Rupees.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Rupees.mlmodel; sourceTree = "<group>"; };
+		31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31FA1B7B21D260B00055F444 /* UIUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		4CA12AA6A87DC94B24144FDE /* Pods-Daykho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daykho.release.xcconfig"; path = "Pods/Target Support Files/Pods-Daykho/Pods-Daykho.release.xcconfig"; sourceTree = "<group>"; };
+		5ACE5B54934573BE11436E85 /* Pods-Daykho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daykho.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Daykho/Pods-Daykho.debug.xcconfig"; sourceTree = "<group>"; };
+		DBCE0C150678A0235653989D /* Pods_Daykho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Daykho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				315655A12199E8E8008C6731 /* Intents.framework in Frameworks */,
+				3304889821CD46653D867333 /* Pods_Daykho.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,20 +97,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31258E6121D25EFC00CADFC9 /* FirebaseML */ = {
+			isa = PBXGroup;
+			children = (
+				31FA1B7B21D260B00055F444 /* UIUtilities.swift */,
+			);
+			path = FirebaseML;
+			sourceTree = "<group>";
+		};
 		316BC9F0216BC60B008AB811 = {
 			isa = PBXGroup;
 			children = (
+				31258E6121D25EFC00CADFC9 /* FirebaseML */,
+				3156559F2199E814008C6731 /* Daykho.entitlements */,
 				316BC9FB216BC60B008AB811 /* se_vision */,
 				316BCA10216BC60C008AB811 /* se_visionTests */,
 				316BCA1B216BC60C008AB811 /* se_visionUITests */,
 				316BC9FA216BC60B008AB811 /* Products */,
+				DEA853BC3A6BBA141C1E7CBF /* Pods */,
+				81B0B257D6A8DB13B8D569B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		316BC9FA216BC60B008AB811 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				316BC9F9216BC60B008AB811 /* se_vision.app */,
+				316BC9F9216BC60B008AB811 /* Daykho.app */,
 				316BCA0D216BC60C008AB811 /* se_visionTests.xctest */,
 				316BCA18216BC60C008AB811 /* se_visionUITests.xctest */,
 			);
@@ -97,6 +132,12 @@
 		316BC9FB216BC60B008AB811 /* se_vision */ = {
 			isa = PBXGroup;
 			children = (
+				31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */,
+				316BCA32216BC718008AB811 /* Rupees.mlmodel */,
+				316BCA2C216BC705008AB811 /* ARViewController.swift */,
+				316BCA2D216BC705008AB811 /* BubbleLabelLayer.swift */,
+				316BCA2A216BC705008AB811 /* BubbleLayer.swift */,
+				316BCA2B216BC705008AB811 /* VisionMLViewController.swift */,
 				316BC9FC216BC60B008AB811 /* AppDelegate.swift */,
 				316BC9FE216BC60B008AB811 /* ViewController.swift */,
 				316BCA00216BC60B008AB811 /* Main.storyboard */,
@@ -125,24 +166,45 @@
 			path = se_visionUITests;
 			sourceTree = "<group>";
 		};
+		81B0B257D6A8DB13B8D569B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				315655A02199E8E8008C6731 /* Intents.framework */,
+				DBCE0C150678A0235653989D /* Pods_Daykho.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DEA853BC3A6BBA141C1E7CBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5ACE5B54934573BE11436E85 /* Pods-Daykho.debug.xcconfig */,
+				4CA12AA6A87DC94B24144FDE /* Pods-Daykho.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		316BC9F8216BC60B008AB811 /* se_vision */ = {
+		316BC9F8216BC60B008AB811 /* Daykho */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 316BCA21216BC60C008AB811 /* Build configuration list for PBXNativeTarget "se_vision" */;
+			buildConfigurationList = 316BCA21216BC60C008AB811 /* Build configuration list for PBXNativeTarget "Daykho" */;
 			buildPhases = (
+				4771F08FA35A7EE46DB3116C /* [CP] Check Pods Manifest.lock */,
 				316BC9F5216BC60B008AB811 /* Sources */,
 				316BC9F6216BC60B008AB811 /* Frameworks */,
 				316BC9F7216BC60B008AB811 /* Resources */,
+				E8BD944798E5888DFCBABDC5 /* [CP] Embed Pods Frameworks */,
+				DBF6E2992DA23E2B96673278 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = se_vision;
+			name = Daykho;
 			productName = se_vision;
-			productReference = 316BC9F9216BC60B008AB811 /* se_vision.app */;
+			productReference = 316BC9F9216BC60B008AB811 /* Daykho.app */;
 			productType = "com.apple.product-type.application";
 		};
 		316BCA0C216BC60C008AB811 /* se_visionTests */ = {
@@ -193,6 +255,11 @@
 				TargetAttributes = {
 					316BC9F8216BC60B008AB811 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 					316BCA0C216BC60C008AB811 = {
 						CreatedOnToolsVersion = 10.0;
@@ -217,7 +284,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				316BC9F8216BC60B008AB811 /* se_vision */,
+				316BC9F8216BC60B008AB811 /* Daykho */,
 				316BCA0C216BC60C008AB811 /* se_visionTests */,
 				316BCA17216BC60C008AB811 /* se_visionUITests */,
 			);
@@ -230,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				316BCA07216BC60C008AB811 /* LaunchScreen.storyboard in Resources */,
+				31D6189F218DC3AA003F0CF6 /* GoogleService-Info.plist in Resources */,
 				316BCA04216BC60C008AB811 /* Assets.xcassets in Resources */,
 				316BCA02216BC60B008AB811 /* Main.storyboard in Resources */,
 			);
@@ -251,13 +319,98 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4771F08FA35A7EE46DB3116C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Daykho-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBF6E2992DA23E2B96673278 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Daykho/Pods-Daykho-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Daykho/Pods-Daykho-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8BD944798E5888DFCBABDC5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Daykho/Pods-Daykho-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Daykho/Pods-Daykho-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		316BC9F5216BC60B008AB811 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				316BC9FF216BC60B008AB811 /* ViewController.swift in Sources */,
+				316BCA33216BC718008AB811 /* Rupees.mlmodel in Sources */,
 				316BC9FD216BC60B008AB811 /* AppDelegate.swift in Sources */,
+				316BCA31216BC705008AB811 /* BubbleLabelLayer.swift in Sources */,
+				316BCA2E216BC705008AB811 /* BubbleLayer.swift in Sources */,
+				316BCA2F216BC705008AB811 /* VisionMLViewController.swift in Sources */,
+				31FA1B7C21D260B00055F444 /* UIUtilities.swift in Sources */,
+				316BCA30216BC705008AB811 /* ARViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +435,12 @@
 /* Begin PBXTargetDependency section */
 		316BCA0F216BC60C008AB811 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 316BC9F8216BC60B008AB811 /* se_vision */;
+			target = 316BC9F8216BC60B008AB811 /* Daykho */;
 			targetProxy = 316BCA0E216BC60C008AB811 /* PBXContainerItemProxy */;
 		};
 		316BCA1A216BC60C008AB811 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 316BC9F8216BC60B008AB811 /* se_vision */;
+			target = 316BC9F8216BC60B008AB811 /* Daykho */;
 			targetProxy = 316BCA19216BC60C008AB811 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -430,8 +583,10 @@
 		};
 		316BCA22216BC60C008AB811 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ACE5B54934573BE11436E85 /* Pods-Daykho.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Daykho.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B66JCRW7R4;
 				INFOPLIST_FILE = se_vision/Info.plist;
@@ -439,7 +594,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.starsearth.se-vision";
+				PRODUCT_BUNDLE_IDENTIFIER = com.starsearth.four;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -448,8 +603,10 @@
 		};
 		316BCA23216BC60C008AB811 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CA12AA6A87DC94B24144FDE /* Pods-Daykho.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Daykho.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B66JCRW7R4;
 				INFOPLIST_FILE = se_vision/Info.plist;
@@ -457,7 +614,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.starsearth.se-vision";
+				PRODUCT_BUNDLE_IDENTIFIER = com.starsearth.four;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -558,7 +715,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		316BCA21216BC60C008AB811 /* Build configuration list for PBXNativeTarget "se_vision" */ = {
+		316BCA21216BC60C008AB811 /* Build configuration list for PBXNativeTarget "Daykho" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				316BCA22216BC60C008AB811 /* Debug */,
