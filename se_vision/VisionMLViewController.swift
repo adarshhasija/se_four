@@ -2,6 +2,8 @@ import UIKit
 import AVFoundation
 import Vision
 import FirebaseMLVision
+import IntentsUI
+import FirebaseAnalytics
 
 // controlling the pace of the machine vision analysis
 var lastAnalysis: TimeInterval = 0
@@ -17,7 +19,14 @@ var startDate = NSDate.timeIntervalSinceReferenceDate
 class VisionMLViewController: UIViewController {
     
     /// MARK:- Firebase MLKit properties START
-    private var useFirebase: Bool = true
+    public var shortcutListItem: ShortcutListItem = ShortcutListItem(
+                                                        question: "Text batao",
+                                                        messageOnOpen: "Point your camera at the text",
+                                                        activityType: "com.starsearth.four.tellTextIntent",
+                                                        isUsingFirebase: true,
+                                                        isYesNo: false,
+                                                        textForYesNo: nil
+                                                    )
     
     private lazy var vision = Vision.vision()
     private var lastFrame: CMSampleBuffer?
@@ -103,11 +112,14 @@ class VisionMLViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     previewView.layer.addSublayer(previewLayer)
   }
   
   override func viewDidAppear(_ animated: Bool) {
+    //setupIntents()
+    addSiriButton(to: stackView)
     bubbleLayer.opacity = 0.0
     bubbleLayer.position.x = self.view.frame.width / 2.0
     bubbleLayer.position.y = lowerView.frame.height / 2
@@ -119,7 +131,17 @@ class VisionMLViewController: UIViewController {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     previewLayer.frame = previewView.bounds;
+    
+    sayThis(string: shortcutListItem.messageOnOpen)
   }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        let device = AVCaptureDevice.default(for: AVMediaType.video)
+        if device?.torchMode == AVCaptureDevice.TorchMode.on {
+            turnFlashlightOff()
+        }
+    }
+    
   
   // MARK: Camera handling
   
@@ -137,6 +159,10 @@ class VisionMLViewController: UIViewController {
       videoOutput.videoSettings = [((kCVPixelBufferPixelFormatTypeKey as NSString) as String) : (NSNumber(value: kCVPixelFormatType_32BGRA) as! UInt32)]
       videoOutput.alwaysDiscardsLateVideoFrames = true
       videoOutput.setSampleBufferDelegate(self, queue: queue)
+        
+        if captureSession.isRunning {
+            return
+        }
       
       captureSession.sessionPreset = .hd1920x1080
       captureSession.addOutput(videoOutput)
@@ -158,7 +184,12 @@ extension VisionMLViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
   // called for each frame of video
   func captureOutput(_ captureOutput: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
     
-    if useFirebase == true {
+    let brightness = getBrightness(sampleBuffer: sampleBuffer)
+    let device = AVCaptureDevice.default(for: AVMediaType.video)
+    if brightness < -5.0 && device?.torchMode == AVCaptureDevice.TorchMode.off {
+        turnFlashLightOn()
+    }
+    if shortcutListItem.isUsingFirebase == true {
         callFirebaseMLFunctions(sampleBuffer: sampleBuffer)
         return
     }
@@ -296,6 +327,7 @@ func imageBufferToUIImage(_ imageBuffer: CVImageBuffer) -> UIImage {
 
 extension VisionMLViewController {
     //Firebase MLKit functions
+    
     private func removeDetectionAnnotations() {
         for annotationView in annotationOverlayView.subviews {
             annotationView.removeFromSuperview()
@@ -406,7 +438,16 @@ extension VisionMLViewController {
                         )
                         let label = UILabel(frame: convertedRect)
                         label.text = element.text
-                        self.bubbleLayer.string = element.text
+                        if self.shortcutListItem.isUsingFirebase == true
+                            && self.shortcutListItem.isYesNo == true
+                            && self.shortcutListItem.textForYesNo == "" {
+                            self.bubbleLayer.string = "YES"
+                            self.sayThis(string: "YES")
+                        }
+                        else {
+                            self.bubbleLayer.string = element.text
+                            self.sayThis(string: element.text)
+                        }
                         label.adjustsFontSizeToFitWidth = true
                         self.annotationOverlayView.addSubview(label)
                     }
@@ -414,16 +455,209 @@ extension VisionMLViewController {
             }
         }
     }
+    
+    private enum Constant {
+        static let alertControllerTitle = "Vision Detectors"
+        static let alertControllerMessage = "Select a detector"
+        static let cancelActionTitleText = "Cancel"
+        static let videoDataOutputQueueLabel = "com.google.firebaseml.visiondetector.VideoDataOutputQueue"
+        static let sessionQueueLabel = "com.google.firebaseml.visiondetector.SessionQueue"
+        static let noResultsMessage = "No Results"
+        static let smallDotRadius: CGFloat = 4.0
+        static let originalScale: CGFloat = 1.0
+    }
+}
+
+extension VisionMLViewController {
+    //Siri Shortcuts
+    
+    //Using acitivites instead of intents as Siri opens app directly for activity. For intents, it shows button to open app, which we do not want s
+    func createActivityForQuestion(shortcutListItem: ShortcutListItem) -> NSUserActivity {
+        let activity = NSUserActivity(activityType: shortcutListItem.activityType)
+        activity.title = shortcutListItem.question
+        activity.userInfo = shortcutListItem.dictionary
+        activity.suggestedInvocationPhrase = shortcutListItem.question
+        activity.isEligibleForSearch = true
+        activity.isEligibleForPrediction = true
+        activity.persistentIdentifier = shortcutListItem.activityType
+        view.userActivity = activity
+        activity.becomeCurrent()
+        return activity
+    }
+    
+    // Add an "Add to Siri" button to a view.
+    func addSiriButton(to view: UIView) {
+        let button = INUIAddVoiceShortcutButton(style: .blackOutline)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isUserInteractionEnabled = true
+        //button.shortcut = INShortcut(intent: WhatTextIntent())
+        let activity = createActivityForQuestion(shortcutListItem: shortcutListItem)
+        button.shortcut = INShortcut(userActivity: activity)
+        button.delegate = self
+        
+        view.addSubview(button)
+        view.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+        view.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+    }
+    
+    private func sayThis(string: String) {
+        let utterance = AVSpeechUtterance(string: string)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        
+        let synth = AVSpeechSynthesizer()
+        synth.speak(utterance)
+    }
+    
+    func getBrightness(sampleBuffer: CMSampleBuffer) -> Double {
+        let rawMetadata = CMCopyDictionaryOfAttachments(allocator: nil, target: sampleBuffer, attachmentMode: CMAttachmentMode(kCMAttachmentMode_ShouldPropagate))
+        let metadata = CFDictionaryCreateMutableCopy(nil, 0, rawMetadata) as NSMutableDictionary
+        let exifData = metadata.value(forKey: "{Exif}") as? NSMutableDictionary
+        let brightnessValue : Double = exifData?[kCGImagePropertyExifBrightnessValue as String] as! Double
+        return brightnessValue
+    }
+    
+    func turnFlashLightOn() {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
+        guard device.hasTorch else { return }
+        
+        do {
+            try device.lockForConfiguration()
+            
+            if (device.torchMode == AVCaptureDevice.TorchMode.off) {
+                device.torchMode = AVCaptureDevice.TorchMode.on
+            }
+            
+            device.unlockForConfiguration()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func turnFlashlightOff() {
+        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
+        guard device.hasTorch else { return }
+        
+        do {
+            try device.lockForConfiguration()
+            
+            if (device.torchMode == AVCaptureDevice.TorchMode.on) {
+                device.torchMode = AVCaptureDevice.TorchMode.off
+            }
+            
+            device.unlockForConfiguration()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func getDeviceType() -> String {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            return "iPhone"
+        case .pad:
+            return "iPad"
+        case .unspecified:
+            return "unspecified"
+        default:
+            return "unknown"
+        }
+    }
+    
+    /*
+     Used as sample code to open view controller from siri
+    */
+    public func openFromSiri() {
+        let alert = UIAlertController(title: "Hi There!", message: "Hey there! Glad to see you got this working!", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+///MARK:- Add or Edit Button
+extension VisionMLViewController: INUIAddVoiceShortcutButtonDelegate {
+    func present(_ addVoiceShortcutViewController: INUIAddVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
+        Analytics.logEvent("se4_add_to_siri_tapped", parameters: [
+            "os_version": UIDevice.current.systemVersion,
+            "device_type": getDeviceType(),
+            "mode": "add",
+            "question": shortcutListItem.question.prefix(100)
+            ])
+        
+        addVoiceShortcutViewController.delegate = self
+        addVoiceShortcutViewController.modalPresentationStyle = .formSheet
+        present(addVoiceShortcutViewController, animated: true, completion: nil)
+    }
+    
+    func present(_ editVoiceShortcutViewController: INUIEditVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
+        Analytics.logEvent("se4_add_to_siri_tapped", parameters: [
+            "os_version": UIDevice.current.systemVersion,
+            "device_type": getDeviceType(),
+            "mode": "edit",
+            "question": shortcutListItem.question.prefix(100)
+            ])
+        
+        editVoiceShortcutViewController.delegate = self
+        editVoiceShortcutViewController.modalPresentationStyle = .formSheet
+        present(editVoiceShortcutViewController, animated: true, completion: nil)
+    }
+    
+    
+}
+
+extension VisionMLViewController: INUIAddVoiceShortcutViewControllerDelegate {
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController, didFinishWith voiceShortcut: INVoiceShortcut?, error: Error?) {
+        Analytics.logEvent("se4_add_to_siri_completed", parameters: [
+            "os_version": UIDevice.current.systemVersion,
+            "device_type": getDeviceType(),
+            "mode": "add",
+            "question": shortcutListItem.question.prefix(100)
+            ])
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+        Analytics.logEvent("se4_add_to_siri_cancelled", parameters: [
+            "os_version": UIDevice.current.systemVersion,
+            "device_type": getDeviceType(),
+            "mode": "add",
+            "question": shortcutListItem.question.prefix(100)
+            ])
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
+
+extension VisionMLViewController : INUIEditVoiceShortcutViewControllerDelegate {
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didUpdate voiceShortcut: INVoiceShortcut?, error: Error?) {
+        Analytics.logEvent("se4_add_to_siri_completed", parameters: [
+            "os_version": UIDevice.current.systemVersion,
+            "device_type": getDeviceType(),
+            "mode": "edit",
+            "question": shortcutListItem.question.prefix(100)
+            ])
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController, didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
+        Analytics.logEvent("se4_add_to_siri_cancelled", parameters: [
+            "os_version": UIDevice.current.systemVersion,
+            "device_type": getDeviceType(),
+            "mode": "edit",
+            "question": shortcutListItem.question.prefix(100)
+            ])
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func editVoiceShortcutViewControllerDidCancel(_ controller: INUIEditVoiceShortcutViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
 
-private enum Constant {
-    static let alertControllerTitle = "Vision Detectors"
-    static let alertControllerMessage = "Select a detector"
-    static let cancelActionTitleText = "Cancel"
-    static let videoDataOutputQueueLabel = "com.google.firebaseml.visiondetector.VideoDataOutputQueue"
-    static let sessionQueueLabel = "com.google.firebaseml.visiondetector.SessionQueue"
-    static let noResultsMessage = "No Results"
-    static let smallDotRadius: CGFloat = 4.0
-    static let originalScale: CGFloat = 1.0
-}
+

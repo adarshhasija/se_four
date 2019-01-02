@@ -18,6 +18,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        return true
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        Analytics.logEvent("se4_shortcut_selected", parameters: [
+            "os_version": UIDevice.current.systemVersion,
+            "device_type": getDeviceType(),
+            "interface": "shortcut",
+            "question": (userActivity.userInfo?["question"] as? String)?.prefix(100) ?? ""
+            ])
+        
+     //   let navigationController = window?.rootViewController as! UINavigationController
+     //   let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+     //   let visionMLViewController = storyBoard.instantiateViewController(withIdentifier: "VisionMLViewController") as! VisionMLViewController
+     //   visionMLViewController.shortcutListItem = ShortcutListItem(dictionary: userActivity.userInfo! as NSDictionary)
+     //   navigationController.pushViewController(visionMLViewController, animated: true)
+        self.window?.makeKeyAndVisible() //This assumes root view controller is VisionMLViewController
+        
         return true
     }
 
@@ -43,6 +63,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func getDeviceType() -> String {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            return "iPhone"
+        case .pad:
+            return "iPad"
+        case .unspecified:
+            return "unspecified"
+        default:
+            return "unknown"
+        }
+    }
 }
 

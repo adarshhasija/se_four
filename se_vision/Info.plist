@@ -26,7 +26,9 @@
 	<string>Camera used to classify scenes</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>is20Rupees</string>
+		<string>WhatTextIntent</string>
+		<string>com.starsearth.four.tellTextIntent</string>
+		<string>com.starsearth.four.isThereText</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311526AA21D6B26D00C6C586 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 311526A921D6B26D00C6C586 /* Intents.intentdefinition */; };
 		315655A12199E8E8008C6731 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315655A02199E8E8008C6731 /* Intents.framework */; };
 		316BC9FD216BC60B008AB811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BC9FC216BC60B008AB811 /* AppDelegate.swift */; };
 		316BC9FF216BC60B008AB811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BC9FE216BC60B008AB811 /* ViewController.swift */; };
@@ -21,6 +22,10 @@
 		316BCA31216BC705008AB811 /* BubbleLabelLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA2D216BC705008AB811 /* BubbleLabelLayer.swift */; };
 		316BCA33216BC718008AB811 /* Rupees.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA32216BC718008AB811 /* Rupees.mlmodel */; };
 		31D6189F218DC3AA003F0CF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */; };
+		31F546F321DB3EC300F72BD4 /* ShortcutsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F546F221DB3EC300F72BD4 /* ShortcutsTableViewController.swift */; };
+		31F546F521DB584A00F72BD4 /* ShortcutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F546F421DB584A00F72BD4 /* ShortcutsTableViewCell.swift */; };
+		31F546F721DB7DEA00F72BD4 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31F546F621DB7DEA00F72BD4 /* AppIntentVocabulary.plist */; };
+		31F546F921DBA6DB00F72BD4 /* ShortcutListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F546F821DBA6DB00F72BD4 /* ShortcutListItem.swift */; };
 		31FA1B7C21D260B00055F444 /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FA1B7B21D260B00055F444 /* UIUtilities.swift */; };
 		3304889821CD46653D867333 /* Pods_Daykho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBCE0C150678A0235653989D /* Pods_Daykho.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		311526A921D6B26D00C6C586 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		3156559F2199E814008C6731 /* Daykho.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Daykho.entitlements; sourceTree = "<group>"; };
 		315655A02199E8E8008C6731 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		316BC9F9216BC60B008AB811 /* Daykho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daykho.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +70,10 @@
 		316BCA2D216BC705008AB811 /* BubbleLabelLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleLabelLayer.swift; sourceTree = "<group>"; };
 		316BCA32216BC718008AB811 /* Rupees.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Rupees.mlmodel; sourceTree = "<group>"; };
 		31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31F546F221DB3EC300F72BD4 /* ShortcutsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsTableViewController.swift; sourceTree = "<group>"; };
+		31F546F421DB584A00F72BD4 /* ShortcutsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsTableViewCell.swift; sourceTree = "<group>"; };
+		31F546F621DB7DEA00F72BD4 /* AppIntentVocabulary.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppIntentVocabulary.plist; sourceTree = "<group>"; };
+		31F546F821DBA6DB00F72BD4 /* ShortcutListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutListItem.swift; sourceTree = "<group>"; };
 		31FA1B7B21D260B00055F444 /* UIUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
 		4CA12AA6A87DC94B24144FDE /* Pods-Daykho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daykho.release.xcconfig"; path = "Pods/Target Support Files/Pods-Daykho/Pods-Daykho.release.xcconfig"; sourceTree = "<group>"; };
 		5ACE5B54934573BE11436E85 /* Pods-Daykho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daykho.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Daykho/Pods-Daykho.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +142,8 @@
 		316BC9FB216BC60B008AB811 /* se_vision */ = {
 			isa = PBXGroup;
 			children = (
+				31F546F421DB584A00F72BD4 /* ShortcutsTableViewCell.swift */,
+				31F546F221DB3EC300F72BD4 /* ShortcutsTableViewController.swift */,
 				31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */,
 				316BCA32216BC718008AB811 /* Rupees.mlmodel */,
 				316BCA2C216BC705008AB811 /* ARViewController.swift */,
@@ -144,6 +156,9 @@
 				316BCA03216BC60C008AB811 /* Assets.xcassets */,
 				316BCA05216BC60C008AB811 /* LaunchScreen.storyboard */,
 				316BCA08216BC60C008AB811 /* Info.plist */,
+				311526A921D6B26D00C6C586 /* Intents.intentdefinition */,
+				31F546F621DB7DEA00F72BD4 /* AppIntentVocabulary.plist */,
+				31F546F821DBA6DB00F72BD4 /* ShortcutListItem.swift */,
 			);
 			path = se_vision;
 			sourceTree = "<group>";
@@ -297,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				316BCA07216BC60C008AB811 /* LaunchScreen.storyboard in Resources */,
+				31F546F721DB7DEA00F72BD4 /* AppIntentVocabulary.plist in Resources */,
 				31D6189F218DC3AA003F0CF6 /* GoogleService-Info.plist in Resources */,
 				316BCA04216BC60C008AB811 /* Assets.xcassets in Resources */,
 				316BCA02216BC60B008AB811 /* Main.storyboard in Resources */,
@@ -403,9 +419,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F546F521DB584A00F72BD4 /* ShortcutsTableViewCell.swift in Sources */,
 				316BC9FF216BC60B008AB811 /* ViewController.swift in Sources */,
 				316BCA33216BC718008AB811 /* Rupees.mlmodel in Sources */,
 				316BC9FD216BC60B008AB811 /* AppDelegate.swift in Sources */,
+				31F546F921DBA6DB00F72BD4 /* ShortcutListItem.swift in Sources */,
+				311526AA21D6B26D00C6C586 /* Intents.intentdefinition in Sources */,
+				31F546F321DB3EC300F72BD4 /* ShortcutsTableViewController.swift in Sources */,
 				316BCA31216BC705008AB811 /* BubbleLabelLayer.swift in Sources */,
 				316BCA2E216BC705008AB811 /* BubbleLayer.swift in Sources */,
 				316BCA2F216BC705008AB811 /* VisionMLViewController.swift in Sources */,
