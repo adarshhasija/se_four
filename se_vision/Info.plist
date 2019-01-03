@@ -29,6 +29,7 @@
 		<string>WhatTextIntent</string>
 		<string>com.starsearth.four.tellTextIntent</string>
 		<string>com.starsearth.four.isThereText</string>
+		<string>com.starsearth.four.aroundMeIntent</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -24,6 +24,8 @@ class VisionMLViewController: UIViewController {
                                                         messageOnOpen: "Point your camera at the text",
                                                         activityType: "com.starsearth.four.tellTextIntent",
                                                         isUsingFirebase: true,
+                                                        isTextDetection: true,
+                                                        isLabelDetection: false,
                                                         isYesNo: false,
                                                         textForYesNo: nil
                                                     )
@@ -389,7 +391,12 @@ extension VisionMLViewController {
         visionImage.metadata = metadata
         let imageWidth = CGFloat(CVPixelBufferGetWidth(imageBuffer))
         let imageHeight = CGFloat(CVPixelBufferGetHeight(imageBuffer))
-        recognizeTextOnDevice(in: visionImage, width: imageWidth, height: imageHeight)
+        if shortcutListItem.isTextDetection {
+            recognizeTextOnDevice(in: visionImage, width: imageWidth, height: imageHeight)
+        }
+        else if shortcutListItem.isLabelDetection {
+            recognizeLabelsOnDevice(in: visionImage, width: imageWidth, height: imageHeight)
+        }
     }
     
     private func recognizeTextOnDevice(in image: VisionImage, width: CGFloat, height: CGFloat) {
@@ -452,6 +459,24 @@ extension VisionMLViewController {
                         self.annotationOverlayView.addSubview(label)
                     }
                 }
+            }
+        }
+    }
+    
+    private func recognizeLabelsOnDevice(in image: VisionImage, width: CGFloat, height: CGFloat) {
+        let labelDetector = vision.labelDetector()
+        labelDetector.detect(in: image) { features, error in
+            guard error == nil, let features = features, !features.isEmpty else {
+                return
+            }
+            
+            for label in features {
+                let labelText = label.label
+                let entityId = label.entityID
+                let confidence = label.confidence
+                
+                self.bubbleLayer.string = labelText
+                self.sayThis(string: labelText)
             }
         }
     }
