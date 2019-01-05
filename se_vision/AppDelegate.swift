@@ -31,12 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             "question": (userActivity.userInfo?["question"] as? String)?.prefix(100) ?? ""
             ])
         
-     //   let navigationController = window?.rootViewController as! UINavigationController
-     //   let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-     //   let visionMLViewController = storyBoard.instantiateViewController(withIdentifier: "VisionMLViewController") as! VisionMLViewController
-     //   visionMLViewController.shortcutListItem = ShortcutListItem(dictionary: userActivity.userInfo! as NSDictionary)
-     //   navigationController.pushViewController(visionMLViewController, animated: true)
-        self.window?.makeKeyAndVisible() //This assumes root view controller is VisionMLViewController
+        let navigationController = window?.rootViewController as! UINavigationController
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let visionMLViewController = storyBoard.instantiateViewController(withIdentifier: "VisionMLViewController") as! VisionMLViewController
+        visionMLViewController.shortcutListItem = ShortcutListItem(dictionary: userActivity.userInfo! as NSDictionary)
+        navigationController.pushViewController(visionMLViewController, animated: true)
+     //   self.window?.makeKeyAndVisible() //This assumes root view controller is VisionMLViewController
         
         return true
     }
@@ -49,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        let navigationController = UIApplication.shared.keyWindow!.rootViewController as? UINavigationController
+        navigationController?.popToRootViewController(animated: true)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

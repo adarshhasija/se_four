@@ -20,9 +20,9 @@ class VisionMLViewController: UIViewController {
     
     /// MARK:- Firebase MLKit properties START
     public var shortcutListItem: ShortcutListItem = ShortcutListItem(
-                                                        question: "Text batao",
-                                                        messageOnOpen: "Point your camera at the text",
-                                                        activityType: "com.starsearth.four.tellTextIntent",
+                                                        question: "What does this sign say?",
+                                                        messageOnOpen: "Point your camera at the sign. Sign should be in English",
+                                                        activityType: "com.starsearth.four.tellSignIntent",
                                                         isUsingFirebase: true,
                                                         isTextDetection: true,
                                                         isLabelDetection: false,
@@ -49,6 +49,7 @@ class VisionMLViewController: UIViewController {
     }()
     ///MARK:- Firebase MLKit properties END
   
+    
   @IBOutlet weak var previewView: UIView!
   @IBOutlet weak var stackView: UIStackView!
   @IBOutlet weak var lowerView: UIView!
@@ -136,11 +137,15 @@ class VisionMLViewController: UIViewController {
     
     sayThis(string: shortcutListItem.messageOnOpen)
   }
+
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         let device = AVCaptureDevice.default(for: AVMediaType.video)
         if device?.torchMode == AVCaptureDevice.TorchMode.on {
             turnFlashlightOff()
+        }
+        if captureSession.isRunning {
+            captureSession.stopRunning()
         }
     }
     
@@ -402,6 +407,13 @@ extension VisionMLViewController {
     private func recognizeTextOnDevice(in image: VisionImage, width: CGFloat, height: CGFloat) {
         let textRecognizer = vision.onDeviceTextRecognizer()
         textRecognizer.process(image) { text, error in
+            
+            let navigationController = UIApplication.shared.keyWindow!.rootViewController as? UINavigationController
+            guard let visibleViewController = navigationController?.visibleViewController as? VisionMLViewController else {
+                return
+            }
+            
+            
             self.removeDetectionAnnotations()
             self.updatePreviewOverlayView()
             guard error == nil, let text = text else {
@@ -470,14 +482,27 @@ extension VisionMLViewController {
                 return
             }
             
+            let navigationController = UIApplication.shared.keyWindow!.rootViewController as? UINavigationController
+            guard let visibleViewController = navigationController?.visibleViewController as? VisionMLViewController else {
+                return
+            }
+            //Only proceed if the user is still looking at the camera view
+            
+            var resultForYesNo : Bool?
             for label in features {
-                let labelText = label.label
+                let labelText = label.label.lowercased()
                 let entityId = label.entityID
                 let confidence = label.confidence
-                
-                self.bubbleLayer.string = labelText
-                self.sayThis(string: labelText)
+             
+                if labelText == self.shortcutListItem.textForYesNo {
+                    resultForYesNo = true
+                }
             }
+            if self.shortcutListItem.isYesNo == true && resultForYesNo == true {
+                self.bubbleLayer.string = "YES"
+                self.sayThis(string: "YES")
+            }
+            
         }
     }
     
@@ -515,7 +540,6 @@ extension VisionMLViewController {
         let button = INUIAddVoiceShortcutButton(style: .blackOutline)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isUserInteractionEnabled = true
-        //button.shortcut = INShortcut(intent: WhatTextIntent())
         let activity = createActivityForQuestion(shortcutListItem: shortcutListItem)
         button.shortcut = INShortcut(userActivity: activity)
         button.delegate = self
@@ -532,6 +556,32 @@ extension VisionMLViewController {
         let synth = AVSpeechSynthesizer()
         synth.speak(utterance)
     }
+    
+    func getDeviceType() -> String {
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            return "iPhone"
+        case .pad:
+            return "iPad"
+        case .unspecified:
+            return "unspecified"
+        default:
+            return "unknown"
+        }
+    }
+    
+    /*
+     Used as sample code to open view controller from siri
+    */
+    public func openFromSiri() {
+        let alert = UIAlertController(title: "Hi There!", message: "Hey there! Glad to see you got this working!", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension VisionMLViewController {
+    ///MARK:- Flashlight related functions
     
     func getBrightness(sampleBuffer: CMSampleBuffer) -> Double {
         let rawMetadata = CMCopyDictionaryOfAttachments(allocator: nil, target: sampleBuffer, attachmentMode: CMAttachmentMode(kCMAttachmentMode_ShouldPropagate))
@@ -573,28 +623,6 @@ extension VisionMLViewController {
         } catch {
             print(error)
         }
-    }
-    
-    func getDeviceType() -> String {
-        switch UIDevice.current.userInterfaceIdiom {
-        case .phone:
-            return "iPhone"
-        case .pad:
-            return "iPad"
-        case .unspecified:
-            return "unspecified"
-        default:
-            return "unknown"
-        }
-    }
-    
-    /*
-     Used as sample code to open view controller from siri
-    */
-    public func openFromSiri() {
-        let alert = UIAlertController(title: "Hi There!", message: "Hey there! Glad to see you got this working!", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }
 
