@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseAnalytics
+import FirebaseAuth
 
 public class ShortcutsTableViewController: UITableViewController {
     
@@ -81,7 +82,26 @@ public class ShortcutsTableViewController: UITableViewController {
             )
         )
         
+   /*     shortcuts.append(ShortcutListItem(
+            question: "What is this object?",
+            messageOnOpen: "Point your camera in front of you",
+            activityType: "com.starsearth.four.areThereStairsIntent",
+            isUsingFirebase: true,
+            isTextDetection: false,
+            isLabelDetection: true,
+            isYesNo: false,
+            textForYesNo: nil
+            )
+        )   */
         
+        
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        guard let currentUser = Auth.auth().currentUser else {
+            performSegue(withIdentifier: "segueAuth", sender: nil)
+            return
+        }
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

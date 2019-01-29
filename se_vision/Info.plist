@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Daykho</string>
+	<string>DayKho</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,10 +27,6 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>com.starsearth.four.tellSignIntent</string>
-		<string>com.starsearth.four.isThereAComputerIntent</string>
-		<string>com.starsearth.four.isThereACarIntent</string>
-		<string>com.starsearth.four.arethereStairsIntent</string>
-		<string>com.starsearth.four.tellLicensePlateIntent</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

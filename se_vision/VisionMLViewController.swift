@@ -121,8 +121,7 @@ class VisionMLViewController: UIViewController {
   }
   
   override func viewDidAppear(_ animated: Bool) {
-    //setupIntents()
-    addSiriButton(to: stackView)
+    //addSiriButton(to: stackView)
     bubbleLayer.opacity = 0.0
     bubbleLayer.position.x = self.view.frame.width / 2.0
     bubbleLayer.position.y = lowerView.frame.height / 2
@@ -494,13 +493,21 @@ extension VisionMLViewController {
                 let entityId = label.entityID
                 let confidence = label.confidence
              
-                if labelText == self.shortcutListItem.textForYesNo {
+                if self.shortcutListItem.isYesNo == true && labelText == self.shortcutListItem.textForYesNo {
                     resultForYesNo = true
+                }
+                else {
+                    self.bubbleLayer.string = labelText
+                    self.sayThis(string: labelText)
                 }
             }
             if self.shortcutListItem.isYesNo == true && resultForYesNo == true {
                 self.bubbleLayer.string = "YES"
+                self.bubbleLayer.isHidden = false
                 self.sayThis(string: "YES")
+            }
+            else {
+                self.bubbleLayer.isHidden = true
             }
             
         }

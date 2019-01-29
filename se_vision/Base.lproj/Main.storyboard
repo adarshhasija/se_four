@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E9R-tx-aud">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,27 +18,27 @@
                         <viewControllerLayoutGuide type="bottom" id="9uj-00-xTT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vWp-6z-2Sg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCo-Sd-sPt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UyM-lP-Pve">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nfi-8b-r45">
-                                        <rect key="frame" x="0.0" y="-292" width="375" height="292"/>
+                                        <rect key="frame" x="0.0" y="-448" width="414" height="448"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="l8E-if-Ny3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jWF-n0-5MJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="Im5-Lr-QRD">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </view>
                                                     <vibrancyEffect>
@@ -50,23 +50,23 @@
                                         <blurEffect style="dark"/>
                                     </visualEffectView>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jar-7B-FvL">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jar-7B-FvL" secondAttribute="height" multiplier="1:1" id="JYE-uI-Qfx"/>
                                         </constraints>
                                     </view>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSr-Ed-Y0w">
-                                        <rect key="frame" x="0.0" y="375" width="375" height="292"/>
+                                        <rect key="frame" x="0.0" y="414" width="414" height="448"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="D5y-cI-Rim">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5sz-5O-Duu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="Km4-4c-zfz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </view>
                                                     <vibrancyEffect>
@@ -105,18 +105,121 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugm-UL-hhY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="-133"/>
+            <point key="canvasLocation" x="2097" y="188"/>
+        </scene>
+        <!--Auth Selection Controller-->
+        <scene sceneID="dAQ-iT-pVr">
+            <objects>
+                <viewController id="4IZ-S6-Eb3" customClass="AuthSelectionController" customModule="Daykho" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xw0-XF-7B1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zX0-b6-pZg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwU-Ge-McM">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <color key="backgroundColor" red="1" green="0.18845683586179318" blue="0.16247737995374945" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="zbv-uN-5Qe"/>
+                                        </constraints>
+                                        <state key="normal" title="New User? Signup">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signupTapped:" destination="4IZ-S6-Eb3" eventType="touchUpInside" id="zrN-DK-lAV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpQ-Jl-hGa">
+                                        <rect key="frame" x="0.0" y="60" width="414" height="60"/>
+                                        <color key="backgroundColor" red="0.14213084121304265" green="0.11705747638109365" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Ydm-hc-VsX"/>
+                                        </constraints>
+                                        <state key="normal" title="Existing User? Login">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginTapped:" destination="4IZ-S6-Eb3" eventType="touchUpInside" id="SHL-Du-7U5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zX0-b6-pZg" firstAttribute="top" secondItem="h8j-SL-xee" secondAttribute="top" id="3Ro-4a-yAr"/>
+                            <constraint firstItem="h8j-SL-xee" firstAttribute="trailing" secondItem="zX0-b6-pZg" secondAttribute="trailing" id="YNv-qh-83a"/>
+                            <constraint firstItem="zX0-b6-pZg" firstAttribute="leading" secondItem="h8j-SL-xee" secondAttribute="leading" id="fHH-fs-rUo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h8j-SL-xee"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="XpQ-Jl-hGa" id="CBi-JN-qsx"/>
+                        <outlet property="signupButton" destination="qwU-Ge-McM" id="bCl-iU-5fI"/>
+                        <segue destination="jPC-Ip-Hr7" kind="showDetail" identifier="segue" id="3zv-90-Kqh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b6G-uB-IWY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2097" y="-573"/>
+        </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="uvw-s3-rHD">
+            <objects>
+                <viewController id="jPC-Ip-Hr7" customClass="AuthViewController" customModule="Daykho" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JHy-kD-sfP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Htl-MS-qhv">
+                                <rect key="frame" x="0.0" y="88" width="414" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c7r-pg-7UF">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RyN-gq-4ed">
+                                        <rect key="frame" x="0.0" y="30" width="414" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Htl-MS-qhv" firstAttribute="top" secondItem="nmm-d3-22h" secondAttribute="top" id="U1M-L5-2P7"/>
+                            <constraint firstItem="Htl-MS-qhv" firstAttribute="leading" secondItem="nmm-d3-22h" secondAttribute="leading" id="cYf-x4-7Zl"/>
+                            <constraint firstItem="nmm-d3-22h" firstAttribute="trailing" secondItem="Htl-MS-qhv" secondAttribute="trailing" id="lGj-Za-6Yq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nmm-d3-22h"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="c7r-pg-7UF" id="a2l-oy-h1U"/>
+                        <outlet property="passwordTextField" destination="RyN-gq-4ed" id="CEI-N4-Q5E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VWO-Q4-xXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3246" y="-573"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="pJV-cP-Xio">
             <objects>
                 <viewController id="LyW-vm-bDf" customClass="ARViewController" customModule="Daykho" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rgf-7b-BEU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" sceneName="CameraSetup.scn" wantsMultisampling="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wyD-IH-2VT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <connections>
                                     <outlet property="delegate" destination="LyW-vm-bDf" id="Bvs-B6-5hG"/>
                                 </connections>
@@ -135,7 +238,7 @@
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initializing AR session." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dQ-zZ-eH7">
-                                <rect key="frame" x="103" y="74" width="169" height="22"/>
+                                <rect key="frame" x="103" y="98" width="169" height="217"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="cKI-Gy-MxO"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="sBF-We-NOS"/>
@@ -171,7 +274,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxQ-OI-VmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="OtB-d6-GFX" customClass="SCNScene"/>
             </objects>
-            <point key="canvasLocation" x="2097" y="569"/>
+            <point key="canvasLocation" x="2097" y="1153"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RM5-cd-EmU">
@@ -179,7 +282,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E9R-tx-aud" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Bh-HQ-Hym">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -196,19 +299,19 @@
             <objects>
                 <tableViewController id="LMl-Kc-EG8" customClass="ShortcutsTableViewController" customModule="Daykho" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dSC-l2-2GE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="shortcutCell" textLabel="kVh-6O-HkC" style="IBUITableViewCellStyleDefault" id="6NV-dR-h08" customClass="ShortcutsTableViewCell" customModule="Daykho" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6NV-dR-h08" id="ien-YF-eYb">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Question text here..." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kVh-6O-HkC">
-                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="356" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -231,6 +334,7 @@
                     <connections>
                         <segue destination="oYg-pF-LpF" kind="show" identifier="segueShowDetailVision" id="smL-JD-yqT"/>
                         <segue destination="LyW-vm-bDf" kind="show" identifier="segueShowDetailAR" id="xmH-ka-bKb"/>
+                        <segue destination="4IZ-S6-Eb3" kind="showDetail" identifier="segueAuth" id="d7R-Bs-8Eg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="931-te-KhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
