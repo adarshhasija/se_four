@@ -493,8 +493,10 @@ extension VisionMLViewController {
                 let entityId = label.entityID
                 let confidence = label.confidence
              
-                if self.shortcutListItem.isYesNo == true && labelText == self.shortcutListItem.textForYesNo {
-                    resultForYesNo = true
+                if self.shortcutListItem.isYesNo == true {
+                    if labelText == self.shortcutListItem.textForYesNo {
+                        resultForYesNo = true
+                    }
                 }
                 else {
                     self.bubbleLayer.string = labelText
@@ -505,6 +507,10 @@ extension VisionMLViewController {
                 self.bubbleLayer.string = "YES"
                 self.bubbleLayer.isHidden = false
                 self.sayThis(string: "YES")
+                Analytics.logEvent("se4_label_found", parameters: [
+                    "os_version": UIDevice.current.systemVersion,
+                    "label": self.shortcutListItem.textForYesNo
+                    ])
             }
             else {
                 self.bubbleLayer.isHidden = true

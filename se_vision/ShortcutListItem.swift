@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class ShortcutListItem {
     var question: String
@@ -17,6 +18,8 @@ class ShortcutListItem {
     var isLabelDetection: Bool
     var isYesNo: Bool
     var textForYesNo: String  //If it is a yes/no question, text to check for. If text to check for is empty, we will say yes for any text
+    var canUserDelete: Bool
+    var firebaseUid: String?
     var dictionary: [String: Any] {
         return ["question": question,
                 "messageOnOpen": messageOnOpen,
@@ -25,7 +28,8 @@ class ShortcutListItem {
                 "isTextDetection": isTextDetection,
                 "isLabelDetection": isLabelDetection,
                 "isYesNo": isYesNo,
-                "textForYesNo": textForYesNo
+                "textForYesNo": textForYesNo,
+                "canUserDelete": canUserDelete
         ]
     }
     var nsDictionary: NSDictionary {
@@ -41,16 +45,22 @@ class ShortcutListItem {
         self.isLabelDetection = isLabelDetection
         self.isYesNo = isYesNo
         self.textForYesNo = textForYesNo ?? ""
+        self.canUserDelete = false
     }
     
     init(dictionary: NSDictionary) {
-        self.question = dictionary["question"] as? String ?? ""
-        self.messageOnOpen = dictionary["messageOnOpen"] as? String ?? ""
+        self.question = dictionary["question"] as? String ?? "I am looking for a ".appending(dictionary["text"] as! String)
+        self.messageOnOpen = dictionary["messageOnOpen"] as? String ?? "Please point your phone in front of you"
         self.activityType = dictionary["activityType"] as? String ?? ""
-        self.isUsingFirebase = dictionary["isUsingFirebase"] as? Bool ?? false
+        self.isUsingFirebase = dictionary["isUsingFirebase"] as? Bool ?? true
         self.isTextDetection = dictionary["isTextDetection"] as? Bool ?? false
         self.isLabelDetection = dictionary["isLabelDetection"] as? Bool ?? false
-        self.isYesNo = dictionary["isYesNo"] as? Bool ?? false
-        self.textForYesNo = dictionary["textForYesNo"] as? String ?? ""
+        self.isYesNo = dictionary["isYesNo"] as? Bool ?? true
+        self.textForYesNo = dictionary["textForYesNo"] as? String ?? dictionary["text"] as! String
+        self.canUserDelete = dictionary["canUserDelete"] as? Bool ?? true
+    }
+    
+    func setUid(uid : String) {
+        self.firebaseUid = uid
     }
 }

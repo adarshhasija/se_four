@@ -8,6 +8,8 @@ target 'Daykho' do
   # Pods for Daykho
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
+pod 'FirebaseUI/Auth'
+pod 'Firebase/Database'
 pod 'Firebase/MLVision'
 # If using an on-device API:
 pod 'Firebase/MLVisionTextModel'
