@@ -54,7 +54,7 @@ class ShortcutListItem {
         self.activityType = dictionary["activityType"] as? String ?? ""
         self.isUsingFirebase = dictionary["isUsingFirebase"] as? Bool ?? true
         self.isTextDetection = dictionary["isTextDetection"] as? Bool ?? false
-        self.isLabelDetection = dictionary["isLabelDetection"] as? Bool ?? false
+        self.isLabelDetection = dictionary["isLabelDetection"] as? Bool ?? true
         self.isYesNo = dictionary["isYesNo"] as? Bool ?? true
         self.textForYesNo = dictionary["textForYesNo"] as? String ?? dictionary["text"] as! String
         self.canUserDelete = dictionary["canUserDelete"] as? Bool ?? true
