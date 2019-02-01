@@ -29,6 +29,10 @@ class AddEditLabelViewController : UIViewController {
         textField.addTarget(self, action: #selector(enterPressed), for: .editingDidEndOnExit)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        textField.becomeFirstResponder()
+    }
+    
     @objc func enterPressed(){
         //do something with typed text if needed
         textField.resignFirstResponder()
