@@ -50,7 +50,7 @@ class AddEditLabelViewController : UIViewController {
             return
         }
         
-        ref.child("labels").child(key).updateChildValues(["text": textField.text, "userId": user.uid])
+        ref.child("labels").child(key).updateChildValues(["text": textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), "userId": user.uid])
         self.navigationController?.popViewController(animated: true)
         
     }

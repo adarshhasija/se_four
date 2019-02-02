@@ -6,6 +6,8 @@ target 'Daykho' do
   use_frameworks!
 
   # Pods for Daykho
+pod 'Fabric', '~> 1.9.0'
+pod 'Crashlytics', '~> 3.12.0'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'FirebaseUI/Auth'

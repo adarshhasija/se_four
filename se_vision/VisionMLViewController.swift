@@ -494,7 +494,7 @@ extension VisionMLViewController {
                 let confidence = label.confidence
              
                 if self.shortcutListItem.isYesNo == true {
-                    if labelText == self.shortcutListItem.textForYesNo {
+                    if self.shortcutListItem.textForYesNo.lowercased().contains(labelText.lowercased()) {
                         resultForYesNo = true
                     }
                 }
