@@ -464,7 +464,7 @@ extension VisionMLViewController {
                         }
                         else {
                             self.bubbleLayer.string = element.text
-                            self.sayThis(string: element.text)
+                            self.sayThis(string: self.bubbleLayer.string!)
                         }
                         label.adjustsFontSizeToFitWidth = true
                         self.annotationOverlayView.addSubview(label)

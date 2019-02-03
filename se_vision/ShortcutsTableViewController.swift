@@ -65,8 +65,9 @@ public class ShortcutsTableViewController: UITableViewController {
             textForYesNo: "stairs"
             )
         )
-        
-        shortcuts.append(ShortcutListItem(
+     
+        // TODO: Text detection crashes. Uncomment this to try and fix the crash
+   /*     shortcuts.append(ShortcutListItem(
             question: "What is the sign on this door?",
             messageOnOpen: "Point your camera at the sign. Sign should be in English",
             activityType: "com.starsearth.four.tellSignIntent",
@@ -88,7 +89,7 @@ public class ShortcutsTableViewController: UITableViewController {
             isYesNo: false,
             textForYesNo: nil
             )
-        )
+        )   */
         
         guard let currentUser = Auth.auth().currentUser else {
             logoutButton?.isEnabled = false
