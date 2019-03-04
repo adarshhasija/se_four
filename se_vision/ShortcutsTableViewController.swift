@@ -23,6 +23,8 @@ public class ShortcutsTableViewController: UITableViewController {
     var shortcuts : [ShortcutListItem] = []
     var selectedIndex : Int = -1
     
+    var defaultLabels : [String] = []
+    var userLabels : [String] = []
     
     @IBOutlet weak var logoutButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -47,6 +49,8 @@ public class ShortcutsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "Daykho"
+        defaultLabels.removeAll()
+        userLabels.removeAll()
         
         authUI = FUIAuth.defaultAuthUI()
         // You need to adopt a FUIAuthDelegate protocol to receive callback
@@ -54,20 +58,19 @@ public class ShortcutsTableViewController: UITableViewController {
         
         ref = Database.database().reference()
         
-        shortcuts.append(ShortcutListItem(
-            question: "Are there stairs in front of me?",
-            messageOnOpen: "Point your camera in front of you",
-            activityType: "com.starsearth.four.areThereStairsIntent",
+        appendLabel(shortcutListItem: ShortcutListItem(
+            question: "What is around me?",
+            messageOnOpen: "Hold you camera up and move it around you",
+            activityType: "",
             isUsingFirebase: true,
             isTextDetection: false,
             isLabelDetection: true,
-            isYesNo: true,
-            textForYesNo: "stairs"
+            isYesNo: false,
+            textForYesNo: nil
             )
         )
-     
-        // TODO: Text detection crashes. Uncomment this to try and fix the crash
-   /*     shortcuts.append(ShortcutListItem(
+        
+        appendLabel(shortcutListItem: ShortcutListItem(
             question: "What is the sign on this door?",
             messageOnOpen: "Point your camera at the sign. Sign should be in English",
             activityType: "com.starsearth.four.tellSignIntent",
@@ -79,7 +82,7 @@ public class ShortcutsTableViewController: UITableViewController {
             )
         )
         
-        shortcuts.append(ShortcutListItem(
+        appendLabel(shortcutListItem: ShortcutListItem(
             question: "What is the number of this car?",
             messageOnOpen: "Point your camera at the license plate",
             activityType: "com.starsearth.four.tellLicensePlateIntent",
@@ -89,7 +92,69 @@ public class ShortcutsTableViewController: UITableViewController {
             isYesNo: false,
             textForYesNo: nil
             )
-        )   */
+        )
+        
+        appendLabel(shortcutListItem: ShortcutListItem(
+            question: "Are there stairs in front of me?",
+            messageOnOpen: "Point your camera in front of you",
+            activityType: "com.starsearth.four.areThereStairsIntent",
+            isUsingFirebase: true,
+            isTextDetection: false,
+            isLabelDetection: true,
+            isYesNo: true,
+            textForYesNo: "stairs"
+            )
+        )
+        
+        
+        appendLabel(shortcutListItem: ShortcutListItem(
+            question: "I am looking for a computer",
+            messageOnOpen: "Point your camera in front of you",
+            activityType: "",
+            isUsingFirebase: true,
+            isTextDetection: false,
+            isLabelDetection: true,
+            isYesNo: true,
+            textForYesNo: "computer"
+            )
+        )
+        
+        appendLabel(shortcutListItem: ShortcutListItem(
+            question: "I am looking for a chair",
+            messageOnOpen: "Point your camera in front of you",
+            activityType: "",
+            isUsingFirebase: true,
+            isTextDetection: false,
+            isLabelDetection: true,
+            isYesNo: true,
+            textForYesNo: "chair"
+            )
+        )
+        
+        appendLabel(shortcutListItem: ShortcutListItem(
+            question: "I am looking for a table",
+            messageOnOpen: "Point your camera in front of you",
+            activityType: "",
+            isUsingFirebase: true,
+            isTextDetection: false,
+            isLabelDetection: true,
+            isYesNo: true,
+            textForYesNo: "tableware"
+            )
+        )
+        
+        appendLabel(shortcutListItem: ShortcutListItem(
+            question: "I am looking for a television",
+            messageOnOpen: "Point your camera in front of you",
+            activityType: "",
+            isUsingFirebase: true,
+            isTextDetection: false,
+            isLabelDetection: true,
+            isYesNo: true,
+            textForYesNo: "television"
+            )
+        )
+        
         
         guard let currentUser = Auth.auth().currentUser else {
             logoutButton?.isEnabled = false
@@ -105,8 +170,21 @@ public class ShortcutsTableViewController: UITableViewController {
         labelsRef.observe(.childAdded, with: { (snapshot) -> Void in
             let shortcutListItem = ShortcutListItem(dictionary: snapshot.value as! NSDictionary)
             shortcutListItem.setUid(uid: snapshot.key)
-            self.shortcuts.append(shortcutListItem)
-            self.tableView.insertRows(at: [IndexPath(row: self.shortcuts.count-1, section: 0)], with: UITableView.RowAnimation.automatic)
+            if !self.defaultLabels.contains(shortcutListItem.textForYesNo) {
+                self.shortcuts.append(shortcutListItem)
+                self.userLabels.append(shortcutListItem.textForYesNo)
+                self.tableView.insertRows(at: [IndexPath(row: self.shortcuts.count-1, section: 0)], with: UITableView.RowAnimation.automatic)
+            }
+            else {
+                guard let firebaseUid = shortcutListItem.firebaseUid else {
+                    return
+                }
+                
+                //If it does not exist in our default labels, delete it
+                let refForDelete = self.ref.child("labels").child(firebaseUid)
+                refForDelete.removeValue()
+            }
+            
         })
         
         //This means user is valid
@@ -168,12 +246,28 @@ public class ShortcutsTableViewController: UITableViewController {
     
     public override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            guard let firebaseUid = self.shortcuts[indexPath.row].firebaseUid else {
+            guard let shortcutListItem : ShortcutListItem = self.shortcuts[indexPath.row] else {
                 return
             }
+            
+            guard let firebaseUid = shortcutListItem.firebaseUid else {
+                return
+            }
+            
             ref.child("labels").child(firebaseUid).removeValue()
             self.shortcuts.remove(at: indexPath.row)
             self.tableView.reloadData()
+            
+            guard let textForYesNo : String = shortcutListItem.textForYesNo else {
+                return
+            }
+            
+            let indexInUserLabels = userLabels.firstIndex(of: textForYesNo)
+            if indexInUserLabels != nil {
+                userLabels.remove(at: indexInUserLabels!)
+            }
+            
+            
         }
     }
     
@@ -192,6 +286,14 @@ public class ShortcutsTableViewController: UITableViewController {
                 vc?.shortcutListItem = shortcuts[selectedIndex]
             }
         }
+        else if segue.destination is AddEditLabelViewController {
+            var allItemsArray : [String] = []
+            allItemsArray.append(contentsOf: defaultLabels)
+            allItemsArray.append(contentsOf: userLabels)
+            
+            let vc = segue.destination as? AddEditLabelViewController
+            vc?.labelsAlreadyPresent = allItemsArray
+        }
     }
     
     func getDeviceType() -> String {
@@ -206,6 +308,12 @@ public class ShortcutsTableViewController: UITableViewController {
             return "unknown"
         }
     }
+    
+    private func appendLabel(shortcutListItem : ShortcutListItem) {
+        shortcuts.append(shortcutListItem)
+        defaultLabels.append(shortcutListItem.textForYesNo)
+    }
+    
 }
 
 extension ShortcutsTableViewController : FUIAuthDelegate {

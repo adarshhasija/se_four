@@ -15,6 +15,8 @@ class AddEditLabelViewController : UIViewController {
     
     var ref: DatabaseReference!
     
+    public var labelsAlreadyPresent: [String] = []
+    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     
@@ -40,6 +42,29 @@ class AddEditLabelViewController : UIViewController {
     }
     
     private func submitLabel() {
+        guard let userText = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased() else {
+            return
+        }
+        
+        if labelsAlreadyPresent.contains(userText) {
+            let alert = UIAlertController(title: "Alert", message: "This item is already present in your list", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         guard let user = Auth.auth().currentUser else {
             self.navigationController?.popViewController(animated: true)
             return
@@ -50,7 +75,7 @@ class AddEditLabelViewController : UIViewController {
             return
         }
         
-        ref.child("labels").child(key).updateChildValues(["text": textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(), "userId": user.uid])
+        ref.child("labels").child(key).updateChildValues(["text": userText, "userId": user.uid])
         self.navigationController?.popViewController(animated: true)
         
     }

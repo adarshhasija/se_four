@@ -15,6 +15,8 @@ var frameCount = 0
 let framesPerSample = 10
 var startDate = NSDate.timeIntervalSinceReferenceDate
 
+let synth = AVSpeechSynthesizer()
+
 
 class VisionMLViewController: UIViewController {
     
@@ -409,8 +411,10 @@ extension VisionMLViewController {
             
             let navigationController = UIApplication.shared.keyWindow!.rootViewController as? UINavigationController
             guard let visibleViewController = navigationController?.visibleViewController as? VisionMLViewController else {
+                synth.stopSpeaking(at: .immediate)
                 return
             }
+            //Only proceed if the user is still looking at the camera view
             
             
             self.removeDetectionAnnotations()
@@ -418,6 +422,8 @@ extension VisionMLViewController {
             guard error == nil, let text = text else {
                 print("On-Device text recognizer error: " +
                     "\(error?.localizedDescription ?? Constant.noResultsMessage)")
+                self.bubbleLayer.isHidden = true
+                synth.pauseSpeaking(at: AVSpeechBoundary.immediate)
                 return
             }
             // Blocks.
@@ -456,15 +462,15 @@ extension VisionMLViewController {
                         )
                         let label = UILabel(frame: convertedRect)
                         label.text = element.text
-                        if self.shortcutListItem.isUsingFirebase == true
-                            && self.shortcutListItem.isYesNo == true
-                            && self.shortcutListItem.textForYesNo == "" {
-                            self.bubbleLayer.string = "YES"
-                            self.sayThis(string: "YES")
+                        
+                        if element.text.isEmpty == true {
+                            self.bubbleLayer.isHidden = true
+                            self.bubbleLayer.string = ""
                         }
                         else {
+                            self.bubbleLayer.isHidden = false
                             self.bubbleLayer.string = element.text
-                            self.sayThis(string: self.bubbleLayer.string!)
+                            self.sayThis(string: element.text)
                         }
                         label.adjustsFontSizeToFitWidth = true
                         self.annotationOverlayView.addSubview(label)
@@ -483,6 +489,7 @@ extension VisionMLViewController {
             
             let navigationController = UIApplication.shared.keyWindow!.rootViewController as? UINavigationController
             guard let visibleViewController = navigationController?.visibleViewController as? VisionMLViewController else {
+                synth.stopSpeaking(at: .immediate)
                 return
             }
             //Only proceed if the user is still looking at the camera view
@@ -499,6 +506,7 @@ extension VisionMLViewController {
                     }
                 }
                 else {
+                    self.bubbleLayer.isHidden = false
                     self.bubbleLayer.string = labelText
                     self.sayThis(string: labelText)
                 }
@@ -512,8 +520,17 @@ extension VisionMLViewController {
                     "label": self.shortcutListItem.textForYesNo
                     ])
             }
-            else {
+            else if self.shortcutListItem.isYesNo == true && resultForYesNo == false {
                 self.bubbleLayer.isHidden = true
+                synth.pauseSpeaking(at: AVSpeechBoundary.immediate)
+            }
+            else if self.shortcutListItem.isYesNo == false {
+                self.bubbleLayer.isHidden = false
+            }
+            else {
+                //Default condition = hide
+                self.bubbleLayer.isHidden = true
+                synth.pauseSpeaking(at: AVSpeechBoundary.immediate)
             }
             
         }
@@ -565,8 +582,9 @@ extension VisionMLViewController {
     private func sayThis(string: String) {
         let utterance = AVSpeechUtterance(string: string)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        
-        let synth = AVSpeechSynthesizer()
+        if synth.isPaused {
+            synth.continueSpeaking()
+        }
         synth.speak(utterance)
     }
     
