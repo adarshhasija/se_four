@@ -263,7 +263,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="questionLabel" destination="kVh-6O-HkC" id="SdE-xr-E0L"/>
+                                    <outlet property="questionLabel" destination="kVh-6O-HkC" id="QyT-Cb-BkF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
