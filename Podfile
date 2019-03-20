@@ -16,5 +16,6 @@ pod 'Firebase/MLVision'
 # If using an on-device API:
 pod 'Firebase/MLVisionTextModel'
 pod 'Firebase/MLVisionLabelModel'
+pod 'Firebase/MLModelInterpreter'
 
 end
