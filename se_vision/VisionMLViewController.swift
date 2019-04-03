@@ -2,6 +2,7 @@ import UIKit
 import AVFoundation
 import Vision
 import FirebaseMLVision
+import Firebase
 import IntentsUI
 import FirebaseAnalytics
 
@@ -123,7 +124,7 @@ class VisionMLViewController: UIViewController {
   }
   
   override func viewDidAppear(_ animated: Bool) {
-    //addSiriButton(to: stackView)
+    addSiriButton(to: stackView)
     bubbleLayer.opacity = 0.0
     bubbleLayer.position.x = self.view.frame.width / 2.0
     bubbleLayer.position.y = lowerView.frame.height / 2
@@ -402,6 +403,21 @@ extension VisionMLViewController {
         }
         else if shortcutListItem.isLabelDetection {
             recognizeLabelsOnDevice(in: visionImage, width: imageWidth, height: imageHeight)
+        }
+        else {
+         /*   let conditions = ModelDownloadConditions(isWiFiRequired: true, canDownloadInBackground: true)
+            let cloudModelSource = CloudModelSource(
+                modelName: "my_cloud_model",
+                enableModelUpdates: true,
+                initialConditions: conditions,
+                updateConditions: conditions
+            )
+            let registrationSuccessful = ModelManager.modelManager().register(cloudModelSource)
+            
+            let options = ModelOptions(
+                cloudModelName: "my_cloud_model",
+                localModelName: nil)
+            let interpreter = ModelInterpreter.modelInterpreter(options: options)   */
         }
     }
     

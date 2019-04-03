@@ -66,6 +66,7 @@
 		316BCA2C216BC705008AB811 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		316BCA2D216BC705008AB811 /* BubbleLabelLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleLabelLayer.swift; sourceTree = "<group>"; };
 		316BCA32216BC718008AB811 /* Rupees.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Rupees.mlmodel; sourceTree = "<group>"; };
+		318276832251B1ED00EB3E70 /* Daykho.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Daykho.entitlements; sourceTree = "<group>"; };
 		31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31ED8B192242AA6F00A84962 /* ShortcutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsTableViewCell.swift; sourceTree = "<group>"; };
 		31ED8B1B2242ABDC00A84962 /* AddEditLabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditLabelViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		316BC9F0216BC60B008AB811 = {
 			isa = PBXGroup;
 			children = (
+				318276832251B1ED00EB3E70 /* Daykho.entitlements */,
 				31258E6121D25EFC00CADFC9 /* FirebaseML */,
 				316BC9FB216BC60B008AB811 /* se_vision */,
 				316BCA10216BC60C008AB811 /* se_visionTests */,
@@ -267,7 +269,7 @@
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
 							com.apple.Siri = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -604,6 +606,7 @@
 			baseConfigurationReference = 5ACE5B54934573BE11436E85 /* Pods-Daykho.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Daykho.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B66JCRW7R4;
 				INFOPLIST_FILE = se_vision/Info.plist;
@@ -623,6 +626,7 @@
 			baseConfigurationReference = 4CA12AA6A87DC94B24144FDE /* Pods-Daykho.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Daykho.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B66JCRW7R4;
 				INFOPLIST_FILE = se_vision/Info.plist;

@@ -110,7 +110,7 @@ public class ShortcutsTableViewController: UITableViewController {
         appendLabel(shortcutListItem: ShortcutListItem(
             question: "I am looking for a computer",
             messageOnOpen: "Point your camera in front of you",
-            activityType: "",
+            activityType: "com.starsearth.four.tellSignIntent",
             isUsingFirebase: true,
             isTextDetection: false,
             isLabelDetection: true,
@@ -122,7 +122,7 @@ public class ShortcutsTableViewController: UITableViewController {
         appendLabel(shortcutListItem: ShortcutListItem(
             question: "I am looking for a chair",
             messageOnOpen: "Point your camera in front of you",
-            activityType: "",
+            activityType: "com.starsearth.four.tellSignIntent",
             isUsingFirebase: true,
             isTextDetection: false,
             isLabelDetection: true,
