@@ -35,8 +35,7 @@
 	<string>Camera used to classify scenes</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>com.starsearth.four.tellSignIntent</string>
-		<string>com.starsearth.four.tellSignIntent2</string>
+		<string>com.starsearth.four.seeCamera</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -58,22 +58,22 @@ public class ShortcutsTableViewController: UITableViewController {
         
         ref = Database.database().reference()
         
-        appendLabel(shortcutListItem: ShortcutListItem(
+    /*    appendLabel(shortcutListItem: ShortcutListItem(
             question: "What is around me?",
             messageOnOpen: "Hold you camera up and move it around you",
-            activityType: "",
+            activityType: "com.starsearth.four.seeCamera",
             isUsingFirebase: true,
             isTextDetection: false,
             isLabelDetection: true,
             isYesNo: false,
             textForYesNo: nil
             )
-        )
+        )   */
         
         appendLabel(shortcutListItem: ShortcutListItem(
             question: "What is the sign on this door?",
             messageOnOpen: "Point your camera at the sign. Sign should be in English",
-            activityType: "com.starsearth.four.tellSignIntent",
+            activityType: "com.starsearth.four.seeCamera",
             isUsingFirebase: true,
             isTextDetection: true,
             isLabelDetection: false,
@@ -82,22 +82,22 @@ public class ShortcutsTableViewController: UITableViewController {
             )
         )
         
-        appendLabel(shortcutListItem: ShortcutListItem(
+    /*    appendLabel(shortcutListItem: ShortcutListItem(
             question: "What is the number of this car?",
             messageOnOpen: "Point your camera at the license plate",
-            activityType: "com.starsearth.four.tellLicensePlateIntent",
+            activityType: "com.starsearth.four.seeCamera",
             isUsingFirebase: true,
             isTextDetection: true,
             isLabelDetection: false,
             isYesNo: false,
             textForYesNo: nil
             )
-        )
+        )   */
         
         appendLabel(shortcutListItem: ShortcutListItem(
             question: "Are there stairs in front of me?",
             messageOnOpen: "Point your camera in front of you",
-            activityType: "com.starsearth.four.areThereStairsIntent",
+            activityType: "com.starsearth.four.seeCamera",
             isUsingFirebase: true,
             isTextDetection: false,
             isLabelDetection: true,
@@ -110,7 +110,7 @@ public class ShortcutsTableViewController: UITableViewController {
         appendLabel(shortcutListItem: ShortcutListItem(
             question: "I am looking for a computer",
             messageOnOpen: "Point your camera in front of you",
-            activityType: "com.starsearth.four.tellSignIntent",
+            activityType: "com.starsearth.four.seeCamera",
             isUsingFirebase: true,
             isTextDetection: false,
             isLabelDetection: true,
@@ -122,7 +122,7 @@ public class ShortcutsTableViewController: UITableViewController {
         appendLabel(shortcutListItem: ShortcutListItem(
             question: "I am looking for a chair",
             messageOnOpen: "Point your camera in front of you",
-            activityType: "com.starsearth.four.tellSignIntent",
+            activityType: "com.starsearth.four.seeCamera",
             isUsingFirebase: true,
             isTextDetection: false,
             isLabelDetection: true,
@@ -134,7 +134,7 @@ public class ShortcutsTableViewController: UITableViewController {
         appendLabel(shortcutListItem: ShortcutListItem(
             question: "I am looking for a table",
             messageOnOpen: "Point your camera in front of you",
-            activityType: "",
+            activityType: "com.starsearth.four.seeCamera",
             isUsingFirebase: true,
             isTextDetection: false,
             isLabelDetection: true,
@@ -146,10 +146,22 @@ public class ShortcutsTableViewController: UITableViewController {
         appendLabel(shortcutListItem: ShortcutListItem(
             question: "I am looking for a television",
             messageOnOpen: "Point your camera in front of you",
-            activityType: "",
+            activityType: "com.starsearth.four.seeCamera",
             isUsingFirebase: true,
             isTextDetection: false,
             isLabelDetection: true,
+            isYesNo: true,
+            textForYesNo: "television"
+            )
+        )
+        
+        appendLabel(shortcutListItem: ShortcutListItem(
+            question: "I am looking for a HSBC water bottle",
+            messageOnOpen: "Point your camera in front of you",
+            activityType: "com.starsearth.four.seeCamera",
+            isUsingFirebase: false,
+            isTextDetection: false,
+            isLabelDetection: false,
             isYesNo: true,
             textForYesNo: "television"
             )
