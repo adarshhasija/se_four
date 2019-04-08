@@ -51,7 +51,7 @@ class ShortcutListItem {
     init(dictionary: NSDictionary) {
         self.question = dictionary["question"] as? String ?? "I am looking for a ".appending(dictionary["text"] as! String)
         self.messageOnOpen = dictionary["messageOnOpen"] as? String ?? "Please point your phone in front of you"
-        self.activityType = dictionary["activityType"] as? String ?? ""
+        self.activityType = dictionary["activityType"] as? String ?? "com.starsearth.four.seeCamera"
         self.isUsingFirebase = dictionary["isUsingFirebase"] as? Bool ?? true
         self.isTextDetection = dictionary["isTextDetection"] as? Bool ?? false
         self.isLabelDetection = dictionary["isLabelDetection"] as? Bool ?? true

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		313DDB4C225B971F00BF65D4 /* AdarshBlueBackpack.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 313DDB4B225B971F00BF65D4 /* AdarshBlueBackpack.mlmodel */; };
 		315655A12199E8E8008C6731 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 315655A02199E8E8008C6731 /* Intents.framework */; };
 		316BC9FD216BC60B008AB811 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BC9FC216BC60B008AB811 /* AppDelegate.swift */; };
 		316BC9FF216BC60B008AB811 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BC9FE216BC60B008AB811 /* ViewController.swift */; };
@@ -20,7 +21,6 @@
 		316BCA30216BC705008AB811 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA2C216BC705008AB811 /* ARViewController.swift */; };
 		316BCA31216BC705008AB811 /* BubbleLabelLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA2D216BC705008AB811 /* BubbleLabelLayer.swift */; };
 		316BCA33216BC718008AB811 /* Rupees.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 316BCA32216BC718008AB811 /* Rupees.mlmodel */; };
-		3182768B22565A6B00EB3E70 /* HSBCWaterBottle.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3182768A22565A6B00EB3E70 /* HSBCWaterBottle.mlmodel */; };
 		31D6189F218DC3AA003F0CF6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */; };
 		31ED8B1A2242AA6F00A84962 /* ShortcutsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED8B192242AA6F00A84962 /* ShortcutsTableViewCell.swift */; };
 		31ED8B1C2242ABDC00A84962 /* AddEditLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED8B1B2242ABDC00A84962 /* AddEditLabelViewController.swift */; };
@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		313DDB4B225B971F00BF65D4 /* AdarshBlueBackpack.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AdarshBlueBackpack.mlmodel; sourceTree = "<group>"; };
 		315655A02199E8E8008C6731 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		316BC9F9216BC60B008AB811 /* Daykho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daykho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		316BC9FC216BC60B008AB811 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		316BCA2D216BC705008AB811 /* BubbleLabelLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleLabelLayer.swift; sourceTree = "<group>"; };
 		316BCA32216BC718008AB811 /* Rupees.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Rupees.mlmodel; sourceTree = "<group>"; };
 		318276832251B1ED00EB3E70 /* Daykho.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Daykho.entitlements; sourceTree = "<group>"; };
-		3182768A22565A6B00EB3E70 /* HSBCWaterBottle.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HSBCWaterBottle.mlmodel; sourceTree = "<group>"; };
 		31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31ED8B192242AA6F00A84962 /* ShortcutsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutsTableViewCell.swift; sourceTree = "<group>"; };
 		31ED8B1B2242ABDC00A84962 /* AddEditLabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditLabelViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		316BC9FB216BC60B008AB811 /* se_vision */ = {
 			isa = PBXGroup;
 			children = (
-				3182768A22565A6B00EB3E70 /* HSBCWaterBottle.mlmodel */,
+				313DDB4B225B971F00BF65D4 /* AdarshBlueBackpack.mlmodel */,
 				31ED8B1B2242ABDC00A84962 /* AddEditLabelViewController.swift */,
 				31F546F221DB3EC300F72BD4 /* ShortcutsTableViewController.swift */,
 				31D6189E218DC3AA003F0CF6 /* GoogleService-Info.plist */,
@@ -427,8 +427,8 @@
 				316BC9FD216BC60B008AB811 /* AppDelegate.swift in Sources */,
 				31F546F921DBA6DB00F72BD4 /* ShortcutListItem.swift in Sources */,
 				31F546F321DB3EC300F72BD4 /* ShortcutsTableViewController.swift in Sources */,
-				3182768B22565A6B00EB3E70 /* HSBCWaterBottle.mlmodel in Sources */,
 				316BCA31216BC705008AB811 /* BubbleLabelLayer.swift in Sources */,
+				313DDB4C225B971F00BF65D4 /* AdarshBlueBackpack.mlmodel in Sources */,
 				316BCA2E216BC705008AB811 /* BubbleLayer.swift in Sources */,
 				316BCA2F216BC705008AB811 /* VisionMLViewController.swift in Sources */,
 				31ED8B1A2242AA6F00A84962 /* ShortcutsTableViewCell.swift in Sources */,

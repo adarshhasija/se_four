@@ -156,14 +156,14 @@ public class ShortcutsTableViewController: UITableViewController {
         )
         
         appendLabel(shortcutListItem: ShortcutListItem(
-            question: "I am looking for a HSBC water bottle",
+            question: "I am looking for my blue backpack",
             messageOnOpen: "Point your camera in front of you",
             activityType: "com.starsearth.four.seeCamera",
             isUsingFirebase: false,
             isTextDetection: false,
             isLabelDetection: false,
             isYesNo: true,
-            textForYesNo: "television"
+            textForYesNo: ""
             )
         )
         
